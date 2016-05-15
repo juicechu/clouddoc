@@ -225,7 +225,7 @@ class resources extends Base
 		$result = array(
 			'Message' => 'forbidden delete resources.'
 		);
-		$this->_Response->sendResponse(405,json_encode($result),'application/json');
+		//$this->_Response->sendResponse(405,json_encode($result),'application/json');
 
 
 		$success = $mysql->excute($sql, $params);

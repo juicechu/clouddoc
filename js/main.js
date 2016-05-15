@@ -31,7 +31,7 @@ require(['jquery','underscore','backbone','app/file','app/global'
 		,RitemExist
 		,RitemNew
 		,RitemRename) {
-        
+
         //用于文件夹选择时，互斥选中的效果
     	var temp = [];
 
@@ -90,7 +90,7 @@ require(['jquery','underscore','backbone','app/file','app/global'
     					//会产生POST，依赖于POST返回的id，并自动设置id，后触发render
     					this.model.save(null,{ async:false });
     				}
-    				
+
     			}
         	},
 
@@ -214,7 +214,7 @@ require(['jquery','underscore','backbone','app/file','app/global'
 			}
 		})
 
-		
+
 		//侦听了集合的add和reset
 		var ResourceSelectCollectionView = Backbone.View.extend({
 
@@ -258,7 +258,7 @@ require(['jquery','underscore','backbone','app/file','app/global'
 			model: File.ResourceModel,
 
 			url: function(){
-				return Global.Api._webApi_resources.replace('{uid}','').replace('{pid}', this._id ? this._id : '');	
+				return Global.Api._webApi_resources.replace('{uid}','').replace('{pid}', this._id ? this._id : '');
 			},
 
 			setId: function(id){
@@ -291,7 +291,7 @@ require(['jquery','underscore','backbone','app/file','app/global'
 						return 0;
 					}
 				}
-				
+
 			}
 
 		})
@@ -439,7 +439,7 @@ require(['jquery','underscore','backbone','app/file','app/global'
 			newFolder: function(){
 
 				var parent_id = this.router.crumbs.last().get('id');
-				var new_folder = new File.ResourceModel({ 
+				var new_folder = new File.ResourceModel({
 					file_name: 'New Folder',
 					parent_id : parent_id
 				});
@@ -448,7 +448,7 @@ require(['jquery','underscore','backbone','app/file','app/global'
 			},
 
 			remove: function(){
-				alert('删除功能被禁用，请留言联系管理员'); return;
+				//alert('删除功能被禁用，请留言联系管理员'); return;
 				if(!confirm("确实要删除所选的资源")) return;
 				var checkeds = this.getCheckeds();
 				var option = {
@@ -506,7 +506,7 @@ require(['jquery','underscore','backbone','app/file','app/global'
 
 			changeMove: function(){
 
-				var target = _.find(temp,function(t){ 
+				var target = _.find(temp,function(t){
 					return t.model.get('active');
 				});
 				if(!target) return;
@@ -615,13 +615,13 @@ require(['jquery','underscore','backbone','app/file','app/global'
 				this.$el.find('.tree-wrap').html(this.view.render().$el);
 				return this;
 			}
-		})	
+		})
 
 		var ResourceRouter = Backbone.Router.extend({
-			
+
 			routes: {
 				'': 'Default',
-				':id' : 'ById' 
+				':id' : 'ById'
 			},
 
 			initialize: function(){
@@ -656,7 +656,7 @@ require(['jquery','underscore','backbone','app/file','app/global'
 				this.resources.setId(void 0);
 				this.resources.fetch({ reset : true });
 				this.resources.sort();
-				
+
 				this.crumbs.reset();//重置crumb堆栈
 				//init resourcemodel repsent the current folder
 				this.crumbs.push(new File.ResourceModel());
@@ -667,7 +667,7 @@ require(['jquery','underscore','backbone','app/file','app/global'
 				this.resources.fetch({ reset : true });
 				this.resources.sort();
 
-				var exist = this.crumbs.find(function(resource){ 
+				var exist = this.crumbs.find(function(resource){
 					return resource.get('id') == id;
 				})
 				if(exist){
