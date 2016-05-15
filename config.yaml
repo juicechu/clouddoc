@@ -1,0 +1,6 @@
+name: clouddoc
+version: 1
+
+handle:
+- directoryindex: index.html
+- rewrite: if(!is_file()) goto "index.php?%{QUERY_STRING}"

@@ -1,0 +1,27 @@
+<div class="c1">
+  <input type="checkbox">
+</div>
+<div class="c2" title="<%= HTMLEnCodeNoBr(file_name) %> 创建时间 <%= new Date(mod_time).Format("yyyy-MM-dd hh:mm:ss") %>">
+  <span class="cloud-icon">
+  <% if(type == 0){ %>
+    <i class="icon-mod icon-large icon-folder"></i>
+    <% } else { %>
+      <img src="<%= thumb_url %>"/>
+       <% } %>
+  </span>
+  <% if(type == 0){ %>
+       <a class="text" href="#/<%= id ? id : "" %>"><%= HTMLEnCodeNoBr(file_name) %></a>
+  <% } else { %>
+      <span class="text"><%= HTMLEnCodeNoBr(file_name) %></span>
+      <i class="iconfont <%= status %>" title="<%= status_desc %>"></i>
+  <% } %>
+
+</div>
+<div class="c3 hidden-xs hidden-xxs">
+<% if(file_size){ %>
+  <%= formatSize(file_size) %>
+  <% } %>
+</div>
+<div class="c4 hidden-xs hidden-xxs">
+  <%= new Date(mod_time).Format("yyyy-MM-dd hh:mm:ss") %>
+</div>

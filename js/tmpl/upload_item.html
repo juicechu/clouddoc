@@ -1,0 +1,35 @@
+<h4><% if(id) { %>
+  <i class="icon-mod icon-mini icon-nike"></i>
+  <% } %><%= name %></h4>
+<div class="media-mod">
+ <% if(error) { %>
+      <small>对不起上传失败</small>
+  <% } else if(id) { %>
+      <small>恭喜上传成功</small>
+  <% } else { %>
+      <% if(percent) { %>
+      <span class="fr ml-10"><%= percent %>% <span class="btn-mod btn-mini cancel-item">取消</span></span>
+      <div class="media-body">
+        <div class="progress-mod progress-small mt-5">
+          <div class="progress-in" style="width: <%= percent %>%;"></div>
+        </div>
+      </div>
+      <% } else { %>
+          <span class="fr ml-10">0%</span>
+      <div class="media-body">
+        <div class="progress-mod progress-small mt-5">
+          <div class="progress-in" style="width: 0%;"></div>
+        </div>
+      </div>
+      <% } %>
+  <% } %>
+</div>
+<% if(!error && !id) { %>
+    <small>
+    <% if(percent) { %>
+        已上传<%= formatSize(size*percent/100) %></span> 速度 <%= formatSize(speed) %>秒 剩余时间 <%= formatSeconds((size-size*percent/100)/speed) %>
+    <% } else { %>
+        等待上传中
+    <% } %>
+    </small>
+<% } %>

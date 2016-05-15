@@ -1,0 +1,75 @@
+
+<div class="statusbar-mod">  
+    <div class="media-mod">
+        <div class="fr ml-10">
+          <a href="https://gitcafe.com/P_Chou/clouddoc/blob/master/README.md">>>项目主页</a>
+        </div>
+        <h2 class="media-body ellipsis">我的云盘</h2>
+    </div>
+</div>
+
+<div class="main-mod">
+    <div class="post-mod oh">
+
+        <div class="box-mod box-shadow">
+        <div class="toolbar-mod">
+            <div class="media-mod" id="toolbar">
+            <div class="fl">
+                <span class="btn-mod btn-small" id="tbUpload">上传</span> <span id="tbNew" class="btn-mod btn-small btn-orange">新建文件夹</span>
+            </div>
+            <div class="media-body tr">
+                <div class="hidden-xxs">
+                    <span class="btn-mod btn-small btn-green" id="tbDl">下载</span> 
+                    <span class="btn-mod btn-small btn-green" id="tbDel" >删除</span> 
+                    <span class="btn-mod btn-small btn-green" id="tbRename">重命名</span> 
+                    <span class="btn-mod btn-small btn-green" id="tbMove">移动</span>
+                    <div class="hidden-xs dib">
+                      排序 <select id="tbSort"><option value="file_name">按文件名</option><option value="file_size">按文件大小</option></select>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="cloud-mod">
+            <div id="crumb">
+
+            </div>
+     
+          
+            <ul id="listHeader" class="cloud-tool">
+            <li>
+                <div class="c1"><input type="checkbox"></div>
+                <div class="c2">文件名</div>
+                <div class="c3 hidden-xs hidden-xxs">大小</div>
+                <div class="c4 hidden-xs hidden-xxs">最后修改时间</div>
+            </li>
+            </ul>
+          
+            <div id="listHolder"></div>
+        </div>
+        </div>
+      
+    </div>
+</div>
+
+<div class="pop-mod" id="BasePanel4" style="display: none;">
+    <div class="pop-bg">
+    </div>
+    <div class="pop-box">
+        <div class="pop-title"><span class="fr close-mod close-link">×</span><h4 class="ellipsis">移动文件(夹)</h4></div>
+        <div class="pop-content">
+            <div class="toolbar-mod">
+                <div class="media-mod">
+                    <div class="fl">
+                        <span>选择移动到的位置</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tree-wrap">
+            </div>
+
+            <div class="tr mt-10"><a href="javascript:void(0)" class="btn-mod btn-small btn-green move">确定移动</a> <a href="javascript:void(0)" class="btn-mod btn-small close-link">取消</a></div>
+        </div>
+    </div>
+</div>
