@@ -37,16 +37,16 @@ define(['jquery','underscore','backbone','app/global',
                 }
 
                 if(this.get('preview_url')){
-                    this.set({ status : 'icon-ordinaryliulan',status_desc: '可预览'}, { silent: true }); 
+                    this.set({ status : 'icon-ordinaryliulan',status_desc: '可预览'}, { silent: true });
                 }
 
                 //try to fix safari date
                 //http://stackoverflow.com/questions/3085937/safari-js-cannot-parse-yyyy-mm-dd-date-format
                 var d=this.get('mod_time');
                 if(_.isString(d)){
-                    this.set('mod_time',d.replace(/-/g, "/") , { silent: true }); 
+                    this.set('mod_time',d.replace(/-/g, "/") , { silent: true });
                 }
-                
+
             },
 
             changeStatus: function(resp){
@@ -92,7 +92,7 @@ define(['jquery','underscore','backbone','app/global',
 			},
 
 			videoRender: function(){
-                
+
 				// this.$el.jwPlayer({
     //                 id:_.uniqueId('jwp_'),
     //                 swf: '/js/player.swf',
@@ -268,12 +268,12 @@ define(['jquery','underscore','backbone','app/global',
 
 			fileUploaded: function(up,file,info){
 				var res = $.parseJSON(info.response),_this = this,id=void 0;//fi.set('id',res.id);
-				
+
                 _this.ctx = _this.ctx ? _this.ctx : res.ctx;
                 if (_this.ctx) {
                     var key = '';
                 	key = '/key/' + _this.URLSafeBase64Encode(_this.getFileKey(file));
-                    
+
                     var x_vars = up.getOption('x_vars'),
                         x_vars_url = '';
                     if (x_vars !== undefined && typeof x_vars === 'object') {
@@ -323,7 +323,7 @@ define(['jquery','underscore','backbone','app/global',
                     'key': this.getFileKey(file),
                     'token': this.token
                 };
-				
+
                 var x_vars = up.getOption('x_vars');
                 if (x_vars !== undefined && typeof x_vars === 'object') {
                     for (var x_key in x_vars) {
@@ -516,7 +516,7 @@ define(['jquery','underscore','backbone','app/global',
 
 			cancelItem: function(){
 				if(confirm("确定要取消上传吗")){
-					this.model.destroy();	
+					this.model.destroy();
 				}
 			},
 
@@ -540,7 +540,7 @@ define(['jquery','underscore','backbone','app/global',
 						this.$el.removeClass('err');
 						this.$el.removeClass('pass');
 					}
-					
+
 				}
 
 				return this;
@@ -620,7 +620,7 @@ define(['jquery','underscore','backbone','app/global',
 					url: 'should_be_changed_later',
 	                browse_button: 'pickfiles',       //上传选择的点选按钮，**必需**
 	                runtimes: 'html5,flash,html4',    //上传模式,依次退化
-	                max_file_size: '20mb',           //最大文件体积限制
+	                max_file_size: '2048mb',           //最大文件体积限制
 	                flash_swf_url: 'js/plupload/Moxie.swf',  //引入flash,相对路径
 	                max_retries: 0,                   //上传失败最大重试次数
 	                dragdrop: true,                   //开启可拖曳上传
