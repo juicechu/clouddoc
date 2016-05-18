@@ -30,13 +30,13 @@ class qiniuuptoken extends Base
 		$fsize = $_POST['fsize'];
 		$ftype = $_POST['ftype'];
 		$putPolicy = new Qiniu_RS_PutPolicy($BUCKET);
-		
+
 		$putPolicy->CallbackUrl = $host . 'qiniucallback';
 		$putPolicy->CallbackBody = 'key=$(key)&fname=$(fname)&fsize=$(fsize)&mimeType=$(mimeType)&persistentId=$(persistentId)&bucket=$(bucket)' . $custome_callback_var;
 		if($mimetocmd[$ftype]){
 			$putPolicy->PersistentOps = $mimetocmd[$ftype];
 			$putPolicy->PersistentNotifyUrl = $host . 'qiniunotify';
-			$putPolicy->PersistentPipeline = 'pchouqueue';//hardcode
+			$putPolicy->PersistentPipeline = 'juice_queue';//hardcode
 		}
 
 		$upToken = $putPolicy->Token(null);
